@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title> Profile | LikeDiamond</title>
+	<th:block th:insert="utils/imports.html :: meta"></th:block>
+	<th:block th:insert="utils/imports.html :: maincss"></th:block>
+</head><!--/head-->
+
+<body>
+<th:block th:insert="utils/header.html :: header"></th:block>
+
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-11 padding-right">
+				<div class="product-details"><!--product-details-->
+					<div class="col-sm-12">
+						<div class="product-information"><!--/product-information-->
+							<h2>PROFILE INFORMATIONS</h2><br>
+							<p style="font-size: 18px"><b>Lastname:</b> <th:block th:text="${authUser.lastName}"></th:block></p><br>
+							<p style="font-size: 18px"><b>Firstname:</b> <th:block th:text="${authUser.firstName}"></th:block></p><br>
+							<p style="font-size: 18px"><b>ID:</b> <th:block th:text="${authUser.id}"></th:block></p><br>
+							<p style="font-size: 18px"><b>Email:</b> <th:block th:text="${authUser.email}"></th:block></p><br>
+							<p style="font-size: 18px"><b>Authorities:</b> <th:block th:text="${authUser.grantedAuthorities}"></th:block></p><br>
+						</div><!--/product-information-->
+					</div>
+				</div><!--/product-details-->
+			</div>
+		</div>
+	</div>
+</section>
+
+<br><br><br><br><br><br>
+<th:block th:insert="utils/footer.html :: footer"></th:block>
+<th:block th:insert="utils/imports.html :: mainjs"></th:block>
+
+</body>
+</html>

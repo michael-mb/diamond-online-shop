@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Cart | LIKEDIAMOND</title>
+	<th:block th:insert="utils/imports.html :: meta"></th:block>
+	<th:block th:insert="utils/imports.html :: maincss"></th:block>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head><!--/head-->
+
+<body>
+<th:block th:insert="utils/header.html :: header"></th:block>
+
+	<section id="cart_items">
+		<div class="container">
+			<div class="breadcrumbs">
+				<ol class="breadcrumb">
+					<li><a href="#">Home</a></li>
+					<li class="active">Shopping Cart</li>
+				</ol>
+			</div>
+			<div class="table-responsive cart_info">
+				<div class="table-responsive cart_info">
+					<table class="table table-condensed">
+						<thead>
+						<tr class="cart_menu">
+							<td class="image">Item</td>
+							<td class="description"></td>
+							<td class="price">Price</td>
+							<td class="quantity">Quantity</td>
+							<td class="total">Total</td>
+							<td></td>
+						</tr>
+						</thead>
+						<tbody>
+							<tr th:each="item : ${itemMap.keySet()}">
+								<td class="cart_product">
+									<img th:src="${item.getImagePath()}" alt="">
+								</td>
+								<td class="cart_description" style="max-width: 320px;">
+									<h4 th:text="${item.getName()}" style="text-align: left">Colorblock Scuba</h4>
+									<p th:text="${item.getDescription()}" style="text-align: left;margin-top: 6px;font-size: 12px;"></p>
+								</td>
+								<td class="cart_price">
+									<p th:text="${item.getPrice()} + '€'"  style="font-size: 11px"></p>
+								</td>
+								<td class="cart_quantity">
+									<div class="cart_quantity_button">
+										<p th:text="${itemMap.get(item)}"></p>
+									</div>
+								</td>
+								<td class="cart_total">
+									<p class="cart_total_price" th:text="(${item.getPrice()} * ${itemMap.get(item)}) + '€' "></p>
+								</td>
+								<td class="cart_delete">
+									<a class="cart_quantity_delete" th:href="${'/removeFromCart?itemId='+ item.getId()}"><i class="fa fa-times"></i></a>
+								</td>
+							</tr>
+
+							<tr>
+								<td colspan="4">&nbsp;</td>
+								<td colspan="2">
+									<table class="table table-condensed total-result">
+										<tr>
+											<td>Total</td>
+											<td><span th:text="${total}+ '€'"></span></td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="payment-options" style="margin-left: 20px;">
+						<span>
+							<label style="font-size: 35px"><input type="radio" name="payment"><i class="fa fa-cc-mastercard" style="color:red;padding: 10px"></i></label>
+						</span>
+					<span>
+							<label  style="font-size: 35px"><input type="radio" name="payment"> <i class="fa fa-cc-visa" style="color:navy;padding: 10px"></i></label>
+						</span>
+					<span>
+							<label  style="font-size: 35px"><input type="radio" name="payment" checked> <i class="fa fa-paypal" style="color: #0051e6; padding: 10px" aria-hidden="true"></i></label>
+					</span>
+					<br>
+					<a class="validate" th:href="'/payment?cartId='+${cartId}" style="display: block;padding: 12px;font-size: 16px;width: 90px;text-align: center;">BUY</a>
+				</div>
+
+			</div>
+		</div>
+	</section> <!--/#cart_items-->
+
+<th:block th:insert="utils/footer.html :: footer"></th:block>
+<th:block th:insert="utils/imports.html :: mainjs"></th:block>
+
+</body>
+</html>

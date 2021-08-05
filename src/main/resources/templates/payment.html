@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Payment | LIKEDIAMOND</title>
+	<th:block th:insert="utils/imports.html :: meta"></th:block>
+	<th:block th:insert="utils/imports.html :: maincss"></th:block>
+	<th:block th:insert="utils/imports.html :: successanimation"></th:block>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head><!--/head-->
+
+<body>
+<th:block th:insert="utils/header.html :: header"></th:block>
+
+<section id="cart_items">
+	<div class="container">
+		<div class="container-x">
+			<div class="action">
+				<div class="trophy">
+					<svg fill="#7CFF07FF" width="100%" height="100%" viewBox="0 0 24 24">
+						<path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M11,16.5L18,9.5L16.59,8.09L11,13.67L7.91,10.59L6.5,12L11,16.5Z"></path>
+					</svg>
+				</div>
+				<div class="confetti"></div>
+				<div class="confetti two"></div>
+				<div class="confetti three"></div>
+				<div class="confetti four"></div>
+				<div class="confetti--purple"></div>
+				<div class="confetti--purple two"></div>
+				<div class="confetti--purple three"></div>
+				<div class="confetti--purple four"></div>
+			</div>
+		</div>
+		<h2>Payment ok , Your delivery will be in 03 days</h2>
+	</div>
+	<br>
+	</div>
+</section> <!--/#cart_items-->
+
+<th:block th:insert="utils/footer.html :: footer"></th:block>
+<th:block th:insert="utils/imports.html :: mainjs"></th:block>
+
+
+</body>
+</html>

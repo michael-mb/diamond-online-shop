@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>SHOP | LIKEDIAMOND</title>
+	<th:block th:insert="utils/imports.html :: meta"></th:block>
+	<th:block th:insert="utils/imports.html :: maincss"></th:block>
+</head><!--/head-->
+
+<body>
+<th:block th:insert="utils/header.html :: header"></th:block>
+	<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 padding-right">
+				<div class="features_items"><!--features_items-->
+					<h2 class="title text-center">USERS</h2>
+					<div class="col-sm-4" th:each="user : ${users}">
+						<div class="product-image-wrapper">
+							<div class="single-products">
+								<div class="productinfo text-center">
+									<p><b>Name:</b> <th:block th:text="${user.lastName} + ' ' + ${user.firstName}"></th:block></p>
+									<p><b>Email:</b> <th:block th:text="${user.email}"></th:block></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div><!--features_items-->
+			</div>
+		</div>
+	</div>
+</section>
+
+<th:block th:insert="utils/footer.html :: footer"></th:block>
+<th:block th:insert="utils/imports.html :: mainjs"></th:block>
+
+</body>
+</html>

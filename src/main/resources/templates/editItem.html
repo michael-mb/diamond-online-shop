@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title> Edit | LikeDiamond</title>
+	<th:block th:insert="utils/imports.html :: meta"></th:block>
+	<th:block th:insert="utils/imports.html :: maincss"></th:block>
+</head><!--/head-->
+
+<body>
+<th:block th:insert="utils/header.html :: header"></th:block>
+	
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-11 padding-right">
+					<div class="product-details">
+						<div class="col-sm-5">
+							<div class="view-product">
+								<img th:src="${item.getImagePath()}" alt="" />
+							</div>
+
+						</div>
+						<div class="col-sm-7">
+							<div class="product-information">
+
+								<th:block th:if="${item.isSale()}">
+									<img src="images/home/sale.png" class="newarrival" alt="" />
+								</th:block>
+
+								<h2 th:text="${item.name}"></h2>
+								<p th:text="${item.getDescription()}"></p>
+								<span>
+									<span th:text="${item.getPrice() + '€'}"></span>
+								</span>
+								<p><b>Availability:</b> <th:block th:text="${item.getStock()}"></th:block> In Stock</p>
+								<p><b>Brand:</b> <th:block th:text="${item.getBrand()}"></th:block></p>
+								<br><br>
+								<div class="signup-form">
+									<form th:action="${'/editItem?itemId=' + item.getId()}" method="post" th:object="${item}">
+										<input type="text" placeholder="name" th:value="${item.getName()}" name="name"/>
+										<input type="text" placeholder="description" name="description" th:value="${item.getDescription()}"/>
+										<input type="number" placeholder="price" name="price" th:value="${item.getPrice()}"/>
+										<input type="text"  placeholder="imagePath" name="imagePath" th:value="${item.getImagePath()}"/>
+										<th:block th:if="${item.isSale()}">
+											<label>For Sale: </label><input type="checkbox" name="sale" checked>
+										</th:block>
+										<th:block th:if="${!item.isSale()}">
+											<label>For Sale: </label><input type="checkbox" name="sale">
+										</th:block>
+
+										<input type="number" placeholder="stock" name="stock" th:value="${item.getStock()}"/>
+
+										<a th:href="'deleteItem?itemId='+${item.getId()}"><i class="fa fa-trash-o" style="font-size: 30px;color: red"></i></a>
+
+										<br><br><br>
+
+										<button type="submit" class="btn btn-default">Validate</button>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+<br><br><br><br><br><br>
+<th:block th:insert="utils/footer.html :: footer"></th:block>
+<th:block th:insert="utils/imports.html :: mainjs"></th:block>
+
+</body>
+</html>

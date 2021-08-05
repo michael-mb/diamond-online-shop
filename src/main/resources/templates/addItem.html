@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title> Add | LikeDiamond</title>
+	<th:block th:insert="utils/imports.html :: meta"></th:block>
+	<th:block th:insert="utils/imports.html :: maincss"></th:block>
+</head><!--/head-->
+
+<body>
+<th:block th:insert="utils/header.html :: header"></th:block>
+	
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-11 padding-right">
+					<div class="product-details">
+						<div class="col-sm-8">
+							<div class="product-information">
+								<div class="signup-form">
+									<form action="/addItem" method="post" th:object="${item}">
+										<input type="text" placeholder="name"  name="name"/>
+										<input type="text" placeholder="description" name="description"/>
+										<input type="number" placeholder="price" name="price"/>
+										<input type="text"  placeholder="product12.jpg" name="imagePath"/>
+										<label>For Sale: </label><input type="checkbox" name="sale">
+										<input type="number" placeholder="stock" name="stock"/>
+										<select name="brand">
+											<th:block th:each="brand : ${brands}">
+												<option th:text="${brand}" th:value="${brand}"></option>
+											</th:block>
+										</select>
+										<br><br><br>
+
+										<button type="submit" class="btn btn-default">Validate</button>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+<br><br><br><br><br><br>
+<th:block th:insert="utils/footer.html :: footer"></th:block>
+<th:block th:insert="utils/imports.html :: mainjs"></th:block>
+
+</body>
+</html>

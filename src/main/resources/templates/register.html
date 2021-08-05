@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Register | LIKEDIAMOND</title>
+	<th:block th:insert="utils/imports.html :: meta"></th:block>
+	<th:block th:insert="utils/imports.html :: maincss"></th:block>
+</head><!--/head-->
+
+<body>
+<th:block th:insert="utils/header.html :: header"></th:block>
+	
+	<section id="form"><!--form-->
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="signup-form"><!--sign up form-->
+						<h2>New User Signup!</h2>
+						<form action="/register" method="post" th:object="${registerDto}">
+							<input type="text" placeholder="Lastname" name="lastName"/>
+							<input type="text" placeholder="Firstname" name="firstName"/>
+							<input type="email" placeholder="Email Address" name="email"/>
+							<input type="password" placeholder="Password" name="password"/>
+							<span>
+								You have already an Account ? <a href="/login">Login</a>.
+							</span>
+							<br><br><br>
+							<p style="color: red" th:text="${error}"></p>
+							<button type="submit" class="btn btn-default">Signup</button>
+
+						</form>
+					</div><!--/sign up form-->
+				</div>
+			</div>
+		</div>
+	</section><!--/form-->
+
+<th:block th:insert="utils/footer.html :: footer"></th:block>
+<th:block th:insert="utils/imports.html :: mainjs"></th:block>
+
+</body>
+</html>

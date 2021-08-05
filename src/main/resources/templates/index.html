@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home | LIKEDIAMOND</title>
+	<th:block th:insert="utils/imports.html :: meta"></th:block>
+	<th:block th:insert="utils/imports.html :: maincss"></th:block>
+</head><!--/head-->
+
+<body>
+
+<th:block th:insert="utils/header.html :: header"></th:block>
+	<section id="slider"><!--slider-->
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<div id="slider-carousel" class="carousel slide" data-ride="carousel">
+						<ol class="carousel-indicators">
+							<li data-target="#slider-carousel" data-slide-to="0" class="active"></li>
+							<li data-target="#slider-carousel" data-slide-to="1"></li>
+							<li data-target="#slider-carousel" data-slide-to="2"></li>
+						</ol>
+						
+						<div class="carousel-inner">
+							<div class="item active">
+								<div class="col-sm-6">
+									<h1><span>SHINELIKEDIAMOND</span>-SHOP</h1>
+									<h2>The Best online shop</h2>
+									<p>Discover a daily changing selection of over 2,500 fashion and lifestyle brands and save up to 75%.</p>
+									<a href="/shop" class="btn btn-default get">Get it now</a>
+								</div>
+								<div class="col-sm-6">
+									<img src="images/home/girl1.jpg" class="girl img-responsive" alt="" />
+								</div>
+							</div>
+							<div class="item">
+								<div class="col-sm-6">
+									<h1><span>SHINELIKEDIAMOND</span>-SHOP</h1>
+									<h2>The Best online shop</h2>
+									<p>
+										Save on the price, not on the style. Get inspired and treat yourself to something nice.
+										Discover a daily changing selection of over 2,500 fashion and lifestyle brands and save up to 75%.
+									</p>
+									<a href="/shop" class="btn btn-default get">Get it now</a>
+								</div>
+								<div class="col-sm-6">
+									<img src="images/home/girl2.jpg" class="girl img-responsive" alt="" />
+								</div>
+							</div>
+							
+							<div class="item">
+								<div class="col-sm-6">
+									<h1><span>SHINELIKEADIAMOND</span>-SHOP</h1>
+									<h2>The Best online shop</h2>
+									<p>Discover our fashion variety - always new, always different. It's worth it! </p>
+									<a href="/shop" class="btn btn-default get">Get it now</a>
+								</div>
+								<div class="col-sm-6">
+									<img src="images/home/girl3.jpg" class="girl img-responsive" alt="" />
+								</div>
+							</div>
+							
+						</div>
+						
+						<a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
+							<i class="fa fa-angle-left"></i>
+						</a>
+						<a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
+							<i class="fa fa-angle-right"></i>
+						</a>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</section><!--/slider-->
+	
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 padding-right">
+					<div class="features_items">
+						<h2 class="title text-center">Features Items</h2>
+						<div th:each="item : ${items}" class="col-sm-4">
+							<div class="product-image-wrapper">
+								<div class="single-products">
+									<div class="productinfo text-center">
+										<img th:src="${item.getImagePath()}" alt="" />
+										<h2 th:text="${item.getPrice()} + '€'"></h2>
+										<p th:text="${item.name}">Easy Polo Black Edition</p>
+										<a th:href="${'detail?id=' + item.id}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+									</div>
+									<div class="product-overlay">
+										<div class="overlay-content">
+											<h2 th:text="${item.getPrice()} + '€'"></h2>
+											<p th:text="${item.name}">Easy Polo Black Edition</p>
+											<a th:href="${'detail?id=' + item.id}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+										</div>
+									</div>
+									<th:block th:if="${item.isSale()}">
+										<img src="images/home/sale.png" class="new" alt="" />
+									</th:block>
+								</div>
+							</div>
+						</div>
+					</div><!--features_items-->
+				</div>
+			</div>
+		</div>
+	</section>
+
+<th:block th:insert="utils/footer.html :: footer"></th:block>
+<th:block th:insert="utils/imports.html :: mainjs"></th:block>
+</body>
+</html>

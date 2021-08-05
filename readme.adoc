@@ -1,0 +1,36 @@
+= DIAMOND SHOP
+
+A small demo of the App : https://drive.google.com/file/d/1XTsxsFfLDD_-mOozhmhWex5gu7Oof9BC/view?usp=sharing[Click me]
+
+=== ABOUT
+
+Simple online sales application with Java and Spring Boot
+
+image:/app.png?raw=true[home page image]
+
+=== INSTALLATION
+
+To install and run this project follow these steps:
+
+. Clone this repository
+
+. Install Gradle Dependency
+
+. Run the Spring boot application (src/main/java/com/shop/diamond/DiamondShopApplication.java)
+
+=== ALL DEFAULT USERS
+
+. All default users in the App
+image:/testUsers.png?raw=true[home2 page image]
+
+=== FUNCTIONALITY
+
+. Login / Logout
+. User Management
+. Item Management
+. Cart functionality
+. Administrator / User restriction
+
+=== LEARN MORE
+
+. Spring boot https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/[documentation]
