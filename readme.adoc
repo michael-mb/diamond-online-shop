@@ -21,7 +21,7 @@ To install and run this project follow these steps:
 === ALL DEFAULT USERS
 
 . All default users in the App
-image:/testUsers.png?raw=true[home2 page image]
+image:/testusers.png?raw=true[home2 page image]
 
 === FUNCTIONALITY
 
